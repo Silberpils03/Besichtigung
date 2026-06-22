@@ -53,9 +53,7 @@
     letter-spacing: 0.01em;
   }
 
-  /* Admin-Tab ist standardmäßig versteckt */
   #tabAdmin { display: none; }
-
   .nav-tabs { display: flex; }
 
   .tab-btn {
@@ -72,7 +70,6 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
   }
-
   .tab-btn:hover { color: var(--accent); }
   .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
@@ -80,370 +77,191 @@
   .page { display: none; }
   .page.active { display: block; }
 
-  /* ── Layout ── */
-  .container {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 36px 24px 60px;
-  }
+  .container { max-width: 720px; margin: 0 auto; padding: 36px 24px 60px; }
 
   .page-title {
     font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 6px;
+    font-size: 26px; font-weight: 500; color: var(--ink); margin-bottom: 6px;
   }
-
-  .page-sub {
-    font-size: 13px;
-    color: var(--ink-light);
-    margin-bottom: 32px;
-    line-height: 1.5;
-  }
+  .page-sub { font-size: 13px; color: var(--ink-light); margin-bottom: 32px; line-height: 1.5; }
 
   /* ── Cards ── */
   .card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    box-shadow: var(--shadow);
-    margin-bottom: 16px;
+    background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px; box-shadow: var(--shadow); margin-bottom: 16px;
   }
-
   .card-title {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--ink-light);
-    margin-bottom: 18px;
+    font-size: 13px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--ink-light); margin-bottom: 18px;
   }
 
   /* ── Form ── */
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
   label {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--ink-light);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: 12px; font-weight: 500; color: var(--ink-light);
+    text-transform: uppercase; letter-spacing: 0.05em;
   }
-
-  input[type="text"],
-  input[type="email"] {
-    padding: 10px 13px;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: var(--ink);
-    background: var(--bg);
-    outline: none;
-    transition: border-color 0.15s;
+  input[type="date"], input[type="time"], input[type="text"], input[type="email"] {
+    padding: 10px 13px; border: 1px solid var(--border); border-radius: 7px;
+    font-family: 'Inter', sans-serif; font-size: 14px; color: var(--ink);
+    background: var(--bg); outline: none; transition: border-color 0.15s;
   }
-
   input:focus { border-color: var(--accent); background: var(--white); }
   input.error { border-color: var(--red); }
-
-  .field-error {
-    font-size: 11px;
-    color: var(--red);
-    margin-top: 2px;
-    min-height: 14px;
-  }
+  .field-error { font-size: 11px; color: var(--red); margin-top: 2px; min-height: 14px; }
 
   .btn {
-    padding: 11px 22px;
-    border: none;
-    border-radius: 7px;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    letter-spacing: 0.02em;
+    padding: 11px 22px; border: none; border-radius: 7px;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s; letter-spacing: 0.02em;
   }
-
   .btn-primary { background: var(--accent); color: var(--white); }
   .btn-primary:hover { background: #7a5e38; }
-
   .btn-full { width: 100%; margin-top: 8px; }
+  .btn-ghost {
+    background: none; color: var(--red); border: 1px solid #E8D5D3;
+    padding: 7px 14px; font-size: 12px;
+  }
+  .btn-ghost:hover { background: var(--red-light); }
 
   /* ── Slot items (Admin) ── */
   .slot-list { display: flex; flex-direction: column; gap: 10px; }
-
   .slot-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 16px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: var(--white);
+    display: flex; align-items: center; gap: 14px; padding: 14px 16px;
+    border-radius: 8px; border: 1px solid var(--border); background: var(--white);
   }
-
-  .slot-dot {
-    width: 9px; height: 9px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    background: var(--green);
-  }
-
+  .slot-item.booked { background: #FAFAFA; border-color: #EEE; }
+  .slot-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; background: var(--green); }
+  .slot-item.booked .slot-dot { background: #CCC; }
   .slot-info { flex: 1; min-width: 0; }
-
   .slot-datetime { font-size: 14px; font-weight: 500; color: var(--ink); }
-
+  .slot-bookedby {
+    font-size: 12px; color: var(--ink-light); margin-top: 2px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
   .slot-badge {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
+    font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px;
+    letter-spacing: 0.03em; white-space: nowrap;
   }
-
   .badge-free { background: var(--green-light); color: var(--green); }
+  .badge-booked { background: #F0F0F0; color: #888; }
 
-  .empty-state {
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--ink-light);
-    font-size: 14px;
-  }
+  .empty-state { text-align: center; padding: 40px 20px; color: var(--ink-light); font-size: 14px; }
   .empty-state .icon { font-size: 32px; margin-bottom: 10px; }
 
   /* ── Visitor slots ── */
   .visitor-slots { display: flex; flex-direction: column; gap: 10px; }
-
   .visitor-slot {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 16px 18px;
-    border-radius: 8px;
-    border: 1.5px solid var(--border);
-    background: var(--white);
+    display: flex; align-items: center; gap: 14px; padding: 16px 18px;
+    border-radius: 8px; border: 1.5px solid var(--border); background: var(--white);
     transition: all 0.15s;
   }
-
-  .visitor-slot:hover {
-    border-color: var(--accent);
-    transform: translateY(-1px);
+  .visitor-slot:hover:not(.taken) {
+    border-color: var(--accent); transform: translateY(-1px);
     box-shadow: 0 4px 14px rgba(139,111,71,0.12);
   }
-
+  .visitor-slot.taken { background: #FAFAFA; border-color: #EEE; opacity: 0.6; }
   .visitor-slot .slot-datetime { font-size: 15px; }
-
   .btn-book {
-    margin-left: auto;
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    background: var(--accent);
-    color: var(--white);
-    border: none;
-    cursor: pointer;
-    transition: background 0.15s;
-    white-space: nowrap;
+    margin-left: auto; padding: 8px 18px; border-radius: 6px; font-size: 12px;
+    font-weight: 600; background: var(--accent); color: var(--white);
+    border: none; cursor: pointer; transition: background 0.15s; white-space: nowrap;
   }
   .btn-book:hover { background: #7a5e38; }
 
   /* ── Modal ── */
   .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    z-index: 200;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+    z-index: 200; align-items: center; justify-content: center; padding: 24px;
   }
   .modal-overlay.open { display: flex; }
-
   .modal {
-    background: var(--white);
-    border-radius: 14px;
-    padding: 32px;
-    max-width: 460px;
-    width: 100%;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    background: var(--white); border-radius: 14px; padding: 32px;
+    max-width: 460px; width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,0.15);
   }
-
-  .modal-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    margin-bottom: 6px;
-  }
-
-  .modal-sub {
-    font-size: 13px;
-    color: var(--ink-light);
-    margin-bottom: 22px;
-  }
-
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 6px; }
+  .modal-sub { font-size: 13px; color: var(--ink-light); margin-bottom: 22px; }
   .modal-slot-info {
-    background: var(--accent-light);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--accent);
-    margin-bottom: 20px;
+    background: var(--accent-light); border-radius: 8px; padding: 12px 16px;
+    font-size: 14px; font-weight: 500; color: var(--accent); margin-bottom: 20px;
   }
-
   .modal-form { display: flex; flex-direction: column; gap: 14px; }
-
-  .modal-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 8px;
-  }
-
+  .modal-actions { display: flex; gap: 10px; margin-top: 8px; }
   .btn-cancel {
-    flex: 1;
-    padding: 11px;
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--ink-light);
-    transition: all 0.15s;
+    flex: 1; padding: 11px; background: none; border: 1px solid var(--border);
+    border-radius: 7px; font-family: 'Inter', sans-serif; font-size: 13px;
+    font-weight: 500; cursor: pointer; color: var(--ink-light); transition: all 0.15s;
   }
   .btn-cancel:hover { background: var(--bg); }
-
   .btn-confirm {
-    flex: 2;
-    padding: 11px;
-    background: var(--accent);
-    color: var(--white);
-    border: none;
-    border-radius: 7px;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.15s;
+    flex: 2; padding: 11px; background: var(--accent); color: var(--white);
+    border: none; border-radius: 7px; font-family: 'Inter', sans-serif;
+    font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s;
   }
   .btn-confirm:hover { background: #7a5e38; }
+  .btn-confirm:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* ── Success ── */
+  .success-banner {
+    display: none; background: var(--green-light); border: 1px solid #B8DFC8;
+    border-radius: 8px; padding: 14px 18px; font-size: 13px; color: var(--green);
+    font-weight: 500; margin-bottom: 20px; align-items: center; gap: 10px;
+  }
+  .success-banner.show { display: flex; }
 
   /* ── Object badge ── */
   .object-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: var(--ink-light);
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 5px 12px;
-    margin-bottom: 24px;
+    display: inline-flex; align-items: center; gap: 6px; font-size: 12px;
+    color: var(--ink-light); background: var(--white); border: 1px solid var(--border);
+    border-radius: 20px; padding: 5px 12px; margin-bottom: 24px;
   }
   .object-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
 
-  /* ── Hinweis-Box ── */
-  .info-note {
-    background: var(--accent-light);
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-size: 12.5px;
-    color: var(--ink-light);
-    line-height: 1.55;
-    margin-bottom: 24px;
-  }
+  /* ── Stats ── */
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat-box { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--ink); line-height: 1; }
+  .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-light); margin-top: 5px; }
 
   /* ── PIN overlay ── */
   .pin-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-    z-index: 300;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    backdrop-filter: blur(3px);
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+    z-index: 300; align-items: center; justify-content: center; padding: 24px; backdrop-filter: blur(3px);
   }
   .pin-overlay.open { display: flex; }
-
   .pin-box {
-    background: var(--white);
-    border-radius: 14px;
-    padding: 40px 36px;
-    max-width: 340px;
-    width: 100%;
-    border: 1px solid var(--border);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.18);
-    text-align: center;
+    background: var(--white); border-radius: 14px; padding: 40px 36px;
+    max-width: 340px; width: 100%; border: 1px solid var(--border);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.18); text-align: center;
   }
-
-  .pin-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
-
-  .pin-sub {
-    font-size: 13px;
-    color: var(--ink-light);
-    margin-bottom: 24px;
-    line-height: 1.5;
-  }
-
+  .pin-title { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 8px; }
+  .pin-sub { font-size: 13px; color: var(--ink-light); margin-bottom: 24px; line-height: 1.5; }
   .pin-input {
-    width: 100%;
-    text-align: center;
-    font-size: 28px;
-    letter-spacing: 10px;
-    padding: 14px;
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 8px;
-    outline: none;
-    background: var(--bg);
+    width: 100%; text-align: center; font-size: 28px; letter-spacing: 10px;
+    padding: 14px; border: 1.5px solid var(--border); border-radius: 8px;
+    font-family: 'Inter', sans-serif; margin-bottom: 8px; outline: none; background: var(--bg);
   }
   .pin-input:focus { border-color: var(--accent); background: var(--white); }
+  .pin-error { color: var(--red); font-size: 12px; margin-bottom: 12px; min-height: 16px; }
 
-  .pin-error {
-    color: var(--red);
-    font-size: 12px;
-    margin-bottom: 12px;
-    min-height: 16px;
-  }
-
-  /* admin mode indicator */
   .admin-indicator {
-    display: none;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    color: var(--accent);
-    background: var(--accent-light);
-    border-radius: 20px;
-    padding: 4px 12px;
-    margin-right: 12px;
+    display: none; align-items: center; gap: 6px; font-size: 11px; color: var(--accent);
+    background: var(--accent-light); border-radius: 20px; padding: 4px 12px; margin-right: 12px;
   }
   .admin-indicator.show { display: flex; }
-  .admin-indicator-dot {
-    width: 5px; height: 5px;
-    background: var(--accent);
-    border-radius: 50%;
+  .admin-indicator-dot { width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
+
+  /* ── Config-Warnung ── */
+  .config-warning {
+    display: none; background: var(--red-light); border: 1px solid #F0C4BE;
+    border-radius: 8px; padding: 14px 18px; font-size: 13px; color: var(--red);
+    line-height: 1.5; margin-bottom: 20px;
   }
+  .config-warning.show { display: block; }
 
   @media (max-width: 520px) {
+    .form-row { grid-template-columns: 1fr; }
     .stat-num { font-size: 20px; }
     .modal { padding: 24px; }
   }
@@ -452,36 +270,27 @@
 <body>
 
 <!-- ════════════════════════════════════════════════════════════════
-     HIER DEINE TERMINE EINTRAGEN
-     ────────────────────────────────────────────────────────────────
-     Trage unten deine Besichtigungstermine ein. Jeder Termin steht in
-     einer Zeile zwischen { } :
-        { date: "JAHR-MONAT-TAG", time: "STUNDE:MINUTE" }
-     Beispiel:
-        { date: "2026-06-28", time: "18:00" },
-     Termine, die vorbei sind, werden automatisch ausgeblendet.
-     Zum Ändern: Datei bei GitHub bearbeiten und neu speichern.
+     EINMALIGE KONFIGURATION  (siehe ANLEITUNG.md)
+     Trage hier die zwei Werte aus deinem Supabase-Projekt ein:
+     Project-URL  und  anon public key
      ════════════════════════════════════════════════════════════════ -->
 <script>
-  const TERMINE = [
-    { date: "2026-06-28", time: "18:00" },
-    { date: "2026-06-29", time: "17:30" },
-    { date: "2026-07-02", time: "18:30" },
-  ];
-
-  // Empfänger der Buchungsanfragen (deine E-Mail):
-  const KONTAKT_EMAIL = "werner.lars94@googlemail.com";
+  const SUPABASE_URL  = "https://henljaxfmvjuvmscuzsy.supabase.co";
+  const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhlbmxqYXhmbXZqdXZtc2N1enN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxNTMyNjMsImV4cCI6MjA5NzcyOTI2M30.mBEsnZdmXBVAonHYPWJsjLqPBOfLgTYsRFtN1oo_y1w";
 
   // Admin-Zugang:
-  const ADMIN_PIN  = '1234';     // ← hier deinen PIN setzen
-  const ADMIN_PARAM = 'admin';   // Admin-URL:  ...?admin
+  const ADMIN_PIN   = '1234';     // ← hier deinen PIN setzen
+  const ADMIN_PARAM = 'admin';    // Admin-URL:  ...?admin
+
+  // Empfänger (für mailto-Fallback im Erfolgs-Hinweis):
+  const KONTAKT_EMAIL = "werner.lars94@googlemail.com";
 </script>
 
-<!-- PIN Overlay — nur sichtbar wenn ?admin in URL -->
+<!-- PIN Overlay -->
 <div class="pin-overlay" id="pinOverlay">
   <div class="pin-box">
     <div class="pin-title">Admin-Zugang</div>
-    <div class="pin-sub">Bitte PIN eingeben, um<br>die Terminübersicht zu sehen</div>
+    <div class="pin-sub">Bitte PIN eingeben, um<br>Termine zu verwalten</div>
     <input class="pin-input" type="password" id="pinInput" maxlength="4" placeholder="····" inputmode="numeric" autocomplete="off">
     <div class="pin-error" id="pinError"></div>
     <button class="btn btn-primary btn-full" onclick="checkPin()">Weiter</button>
@@ -495,7 +304,7 @@
 <div class="modal-overlay" id="bookingModal">
   <div class="modal">
     <div class="modal-title">Termin anfragen</div>
-    <div class="modal-sub">Bitte alle Felder ausfüllen. Beim Absenden öffnet sich dein E-Mail-Programm mit einer vorausgefüllten Nachricht — du musst sie nur noch abschicken.</div>
+    <div class="modal-sub">Bitte alle Felder ausfüllen — wir bestätigen dir den Termin und melden uns kurz vorher.</div>
     <div class="modal-slot-info" id="modalSlotInfo"></div>
     <div class="modal-form">
       <div class="form-group">
@@ -516,7 +325,7 @@
     </div>
     <div class="modal-actions" style="margin-top: 20px;">
       <button class="btn-cancel" onclick="closeModal()">Abbrechen</button>
-      <button class="btn-confirm" onclick="confirmBooking()">Anfrage per E-Mail senden</button>
+      <button class="btn-confirm" id="confirmBtn" onclick="confirmBooking()">Anfrage senden</button>
     </div>
   </div>
 </div>
@@ -537,28 +346,43 @@
 <!-- ADMIN PAGE -->
 <div class="page" id="pageAdmin">
   <div class="container">
-    <h1 class="page-title">Terminübersicht</h1>
-    <p class="page-sub">Das sind die aktuell eingetragenen Termine. Buchungsanfragen erhältst du per E-Mail. Termine änderst du, indem du die Datei bei GitHub bearbeitest.</p>
+    <h1 class="page-title">Termine verwalten</h1>
+    <p class="page-sub">Lege Besichtigungstermine an. Interessenten sehen diese sofort auf allen Geräten und können anfragen.</p>
+
+    <div class="config-warning" id="cfgWarnAdmin">
+      ⚠️ Supabase ist noch nicht konfiguriert. Trage oben in der Datei <code>SUPABASE_URL</code> und <code>SUPABASE_ANON</code> ein (siehe ANLEITUNG.md). Bis dahin werden keine Daten gespeichert.
+    </div>
 
     <div class="object-badge">
       <div class="object-dot"></div>
       Dornhaldenstr. 14/1 · Stuttgart-Süd · 59 m²
     </div>
 
-    <div class="info-note">
-      <strong>So fügst du Termine hinzu oder entfernst sie:</strong><br>
-      Öffne die Datei <code>index.html</code> in deinem GitHub-Repo, klicke auf den Stift (Bearbeiten) und passe die Liste <code>TERMINE</code> oben in der Datei an. Speichern („Commit changes") — die Seite aktualisiert sich nach kurzer Zeit von selbst.<br><br>
-      Buchungsanfragen kommen an: <strong id="adminEmail"></strong>
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num" id="statTotal">0</div><div class="stat-label">Termine</div></div>
+      <div class="stat-box"><div class="stat-num" id="statFree">0</div><div class="stat-label">Noch frei</div></div>
+      <div class="stat-box"><div class="stat-num" id="statReq">0</div><div class="stat-label">Anfragen</div></div>
     </div>
 
     <div class="card">
-      <div class="card-title">Eingetragene Termine</div>
-      <div class="slot-list" id="adminSlotList">
-        <div class="empty-state">
-          <div class="icon">🗓</div>
-          Keine (kommenden) Termine eingetragen.
-        </div>
+      <div class="card-title">Neuen Termin anlegen</div>
+      <div class="form-row">
+        <div class="form-group"><label>Datum</label><input type="date" id="newDate"></div>
+        <div class="form-group"><label>Uhrzeit</label><input type="time" id="newTime" value="18:00"></div>
       </div>
+      <button class="btn btn-primary btn-full" onclick="addSlot()">＋ Termin hinzufügen</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Alle Termine</div>
+      <div class="slot-list" id="adminSlotList">
+        <div class="empty-state"><div class="icon">🗓</div>Lade…</div>
+      </div>
+    </div>
+
+    <div class="card" id="reqCard" style="display:none;">
+      <div class="card-title">Eingegangene Anfragen</div>
+      <div id="reqList" style="font-size:13px;color:var(--ink);"></div>
     </div>
   </div>
 </div>
@@ -567,45 +391,77 @@
 <div class="page active" id="pageVisitor">
   <div class="container">
     <h1 class="page-title">Besichtigungstermine</h1>
-    <p class="page-sub">Wähle einen Termin und sende uns kurz deine Daten. Wir bestätigen dir den Termin und melden uns kurz vorher.</p>
+    <p class="page-sub">Wähle einen Termin und trage dich ein. Wir bestätigen dir den Termin und melden uns kurz vorher.</p>
+
+    <div class="config-warning" id="cfgWarnVisitor">
+      Die Terminbuchung wird gerade eingerichtet. Bitte später nochmal vorbeischauen.
+    </div>
 
     <div class="object-badge">
       <div class="object-dot"></div>
       Dornhaldenstr. 14/1 · Stuttgart-Süd · 59 m² · 2-Zimmer-Altbau
     </div>
 
+    <div class="success-banner" id="successBanner">
+      <span>✓</span><span id="successText"></span>
+    </div>
+
     <div class="visitor-slots" id="visitorSlotList">
-      <div class="empty-state">
-        <div class="icon">🕐</div>
-        Aktuell sind keine Termine verfügbar.<br>Bitte später nochmal schauen.
-      </div>
+      <div class="empty-state"><div class="icon">🕐</div>Lade Termine…</div>
     </div>
   </div>
 </div>
 
 <script>
-  // ── State ──
-  let selectedSlotIndex = null;
+  // ── Zustand ──
+  let slots = [];        // {id, date, time, booked}
+  let requests = [];     // {id, slot_id, name, phone, email, created_at}
+  let selectedSlotId = null;
   let isAdmin = false;
 
-  // Nur kommende Termine, chronologisch sortiert
-  function activeSlots() {
-    const now = new Date();
-    return TERMINE
-      .map((t, i) => ({ ...t, _i: i }))
-      .filter(t => new Date(t.date + 'T' + (t.time || '00:00')) >= now)
-      .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  const configured = SUPABASE_URL.startsWith('http') && SUPABASE_ANON.length > 20;
+
+  // ── Supabase REST helper ──
+  function sb(path, opts = {}) {
+    return fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
+      ...opts,
+      headers: {
+        'apikey': SUPABASE_ANON,
+        'Authorization': `Bearer ${SUPABASE_ANON}`,
+        'Content-Type': 'application/json',
+        ...(opts.headers || {})
+      }
+    });
   }
 
-  // ── URL prüfen beim Start ──
-  function init() {
-    document.getElementById('adminEmail').textContent = KONTAKT_EMAIL;
+  async function loadSlots() {
+    if (!configured) return [];
+    const today = new Date().toISOString().slice(0,10);
+    const r = await sb(`termine?select=*&date=gte.${today}&order=date.asc,time.asc`);
+    if (!r.ok) { console.error('loadSlots', await r.text()); return []; }
+    return r.json();
+  }
+
+  async function loadRequests() {
+    if (!configured) return [];
+    const r = await sb(`anfragen?select=*&order=created_at.desc`);
+    if (!r.ok) { console.error('loadRequests', await r.text()); return []; }
+    return r.json();
+  }
+
+  // ── Init ──
+  async function init() {
+    if (!configured) {
+      document.getElementById('cfgWarnVisitor').classList.add('show');
+      document.getElementById('cfgWarnAdmin').classList.add('show');
+    }
     const params = new URLSearchParams(window.location.search);
     if (params.has(ADMIN_PARAM)) {
       document.getElementById('pinOverlay').classList.add('open');
       setTimeout(() => document.getElementById('pinInput').focus(), 200);
     }
     showPage('visitor');
+    slots = await loadSlots();
     renderVisitor();
   }
 
@@ -623,22 +479,20 @@
       document.getElementById('pinInput').focus();
     }
   }
-
   function closePinOverlay() {
     document.getElementById('pinOverlay').classList.remove('open');
     document.getElementById('pinInput').value = '';
     document.getElementById('pinError').textContent = '';
   }
+  document.getElementById('pinInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkPin(); });
 
-  document.getElementById('pinInput').addEventListener('keydown', e => {
-    if (e.key === 'Enter') checkPin();
-  });
-
-  function unlockAdmin() {
+  async function unlockAdmin() {
     isAdmin = true;
     document.getElementById('tabAdmin').style.display = '';
     document.getElementById('adminIndicator').classList.add('show');
     showPage('admin');
+    slots = await loadSlots();
+    requests = await loadRequests();
     renderAdmin();
   }
 
@@ -655,57 +509,102 @@
     const d = new Date(dateStr + 'T00:00:00');
     return d.toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: '2-digit', year: 'numeric' });
   }
+  function formatSlot(s) { return `${formatDate(s.date)}, ${(s.time||'').slice(0,5)} Uhr`; }
+  function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
 
-  function formatSlot(s) {
-    return `${formatDate(s.date)}, ${s.time} Uhr`;
+  // ── Admin: Termin anlegen ──
+  async function addSlot() {
+    if (!configured) { alert('Supabase noch nicht konfiguriert.'); return; }
+    const date = document.getElementById('newDate').value;
+    const time = document.getElementById('newTime').value;
+    if (!date || !time) { alert('Bitte Datum und Uhrzeit angeben.'); return; }
+    if (slots.find(s => s.date === date && (s.time||'').slice(0,5) === time)) {
+      alert('Dieser Termin existiert bereits.'); return;
+    }
+    const r = await sb('termine', {
+      method: 'POST',
+      headers: { 'Prefer': 'return=representation' },
+      body: JSON.stringify({ date, time, booked: false })
+    });
+    if (!r.ok) { alert('Fehler beim Speichern: ' + await r.text()); return; }
+    slots = await loadSlots();
+    renderAdmin();
+    document.getElementById('newDate').value = '';
   }
 
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  async function deleteSlot(id) {
+    const s = slots.find(s => s.id === id);
+    if (s && s.booked && !confirm('Dieser Termin hat bereits eine Anfrage. Wirklich löschen?')) return;
+    const r = await sb(`termine?id=eq.${id}`, { method: 'DELETE' });
+    if (!r.ok) { alert('Fehler beim Löschen: ' + await r.text()); return; }
+    slots = await loadSlots();
+    requests = await loadRequests();
+    renderAdmin();
   }
 
-  // ── Admin (Übersicht der definierten Termine) ──
   function renderAdmin() {
     const list = document.getElementById('adminSlotList');
-    const slots = activeSlots();
-    if (!slots.length) {
-      list.innerHTML = `<div class="empty-state"><div class="icon">🗓</div>Keine (kommenden) Termine eingetragen.</div>`;
-      return;
+    const total = slots.length;
+    const booked = slots.filter(s => s.booked).length;
+    document.getElementById('statTotal').textContent = total;
+    document.getElementById('statFree').textContent = total - booked;
+    document.getElementById('statReq').textContent = requests.length;
+
+    if (!total) {
+      list.innerHTML = `<div class="empty-state"><div class="icon">🗓</div>Noch keine Termine angelegt.</div>`;
+    } else {
+      list.innerHTML = slots.map(s => `
+        <div class="slot-item ${s.booked ? 'booked' : ''}">
+          <div class="slot-dot"></div>
+          <div class="slot-info"><div class="slot-datetime">${formatSlot(s)}</div></div>
+          <span class="slot-badge ${s.booked ? 'badge-booked' : 'badge-free'}">${s.booked ? 'Angefragt' : 'Frei'}</span>
+          <button class="btn btn-ghost" onclick="deleteSlot('${s.id}')">Entfernen</button>
+        </div>`).join('');
     }
-    list.innerHTML = slots.map(s => `
-      <div class="slot-item">
-        <div class="slot-dot"></div>
-        <div class="slot-info">
-          <div class="slot-datetime">${formatSlot(s)}</div>
-        </div>
-        <span class="slot-badge badge-free">Verfügbar</span>
-      </div>
-    `).join('');
+
+    const reqCard = document.getElementById('reqCard');
+    if (requests.length) {
+      reqCard.style.display = '';
+      document.getElementById('reqList').innerHTML = requests.map(q => {
+        const s = slots.find(x => x.id === q.slot_id);
+        return `
+        <div style="padding:12px 0;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:3px;">
+          <strong style="font-size:14px;">${q.name}</strong>
+          <span style="color:var(--ink-light);font-size:12px;">📞 ${q.phone} &nbsp;&nbsp; ✉ ${q.email}</span>
+          <span style="color:var(--ink-light);font-size:12px;">🗓 ${s ? formatSlot(s) : (q.slot_text || 'Termin gelöscht')}</span>
+        </div>`;
+      }).join('');
+    } else {
+      reqCard.style.display = 'none';
+    }
   }
 
   // ── Visitor ──
   function renderVisitor() {
     const list = document.getElementById('visitorSlotList');
-    const slots = activeSlots();
+    if (!configured) {
+      list.innerHTML = `<div class="empty-state"><div class="icon">🕐</div>Terminbuchung wird eingerichtet.</div>`;
+      return;
+    }
     if (!slots.length) {
       list.innerHTML = `<div class="empty-state"><div class="icon">🕐</div>Aktuell sind keine Termine verfügbar.<br>Bitte später nochmal schauen.</div>`;
       return;
     }
     list.innerHTML = slots.map(s => `
-      <div class="visitor-slot">
-        <div class="slot-dot"></div>
+      <div class="visitor-slot ${s.booked ? 'taken' : ''}">
+        <div class="slot-dot" style="background:${s.booked ? '#CCC' : 'var(--green)'}"></div>
         <div class="slot-info">
           <div class="slot-datetime">${formatSlot(s)}</div>
+          <div class="slot-bookedby" style="color:${s.booked ? '#AAA' : 'var(--green)'}">${s.booked ? 'Bereits angefragt' : 'Verfügbar'}</div>
         </div>
-        <button class="btn-book" onclick="openModal(${s._i})">Anfragen</button>
-      </div>
-    `).join('');
+        ${!s.booked ? `<button class="btn-book" onclick="openModal('${s.id}')">Anfragen</button>` : ''}
+      </div>`).join('');
   }
 
   // ── Modal ──
-  function openModal(index) {
-    selectedSlotIndex = index;
-    const s = TERMINE[index];
+  function openModal(id) {
+    selectedSlotId = id;
+    const s = slots.find(s => s.id === id);
     document.getElementById('modalSlotInfo').textContent = formatSlot(s);
     ['bookName','bookPhone','bookEmail'].forEach(f => {
       document.getElementById(f).value = '';
@@ -715,83 +614,58 @@
     document.getElementById('bookingModal').classList.add('open');
     setTimeout(() => document.getElementById('bookName').focus(), 100);
   }
-
   function closeModal() {
     document.getElementById('bookingModal').classList.remove('open');
-    selectedSlotIndex = null;
+    selectedSlotId = null;
   }
 
-  function confirmBooking() {
+  async function confirmBooking() {
     const name  = document.getElementById('bookName').value.trim();
     const phone = document.getElementById('bookPhone').value.trim();
     const email = document.getElementById('bookEmail').value.trim();
-
     let valid = true;
 
-    if (!name) {
-      document.getElementById('errName').textContent = 'Bitte Namen eingeben.';
-      document.getElementById('bookName').classList.add('error');
-      valid = false;
-    } else {
-      document.getElementById('errName').textContent = '';
-      document.getElementById('bookName').classList.remove('error');
+    function setErr(field, errId, msg) {
+      document.getElementById(errId).textContent = msg || '';
+      document.getElementById(field).classList.toggle('error', !!msg);
+      if (msg) valid = false;
     }
-
-    if (!phone) {
-      document.getElementById('errPhone').textContent = 'Bitte Telefonnummer eingeben.';
-      document.getElementById('bookPhone').classList.add('error');
-      valid = false;
-    } else {
-      document.getElementById('errPhone').textContent = '';
-      document.getElementById('bookPhone').classList.remove('error');
-    }
-
-    if (!email || !isValidEmail(email)) {
-      document.getElementById('errEmail').textContent = !email
-        ? 'Bitte E-Mail-Adresse eingeben.'
-        : 'Bitte eine gültige E-Mail-Adresse eingeben.';
-      document.getElementById('bookEmail').classList.add('error');
-      valid = false;
-    } else {
-      document.getElementById('errEmail').textContent = '';
-      document.getElementById('bookEmail').classList.remove('error');
-    }
-
+    setErr('bookName','errName', name ? '' : 'Bitte Namen eingeben.');
+    setErr('bookPhone','errPhone', phone ? '' : 'Bitte Telefonnummer eingeben.');
+    setErr('bookEmail','errEmail', !email ? 'Bitte E-Mail-Adresse eingeben.' : (!isValidEmail(email) ? 'Bitte gültige E-Mail-Adresse.' : ''));
     if (!valid) return;
 
-    const s = TERMINE[selectedSlotIndex];
-    const terminText = formatSlot(s);
+    const s = slots.find(s => s.id === selectedSlotId);
+    if (!s || s.booked) { closeModal(); slots = await loadSlots(); renderVisitor(); return; }
 
-    const subject = `Besichtigungsanfrage – ${terminText}`;
-    const body =
-`Hallo,
+    const btn = document.getElementById('confirmBtn');
+    btn.disabled = true; btn.textContent = 'Sende…';
 
-ich möchte die Wohnung in der Dornhaldenstr. 14/1, 70199 Stuttgart-Süd besichtigen.
+    // 1) Anfrage speichern (löst per DB-Webhook die E-Mail an dich aus)
+    const r1 = await sb('anfragen', {
+      method: 'POST',
+      body: JSON.stringify({ slot_id: s.id, slot_text: formatSlot(s), name, phone, email })
+    });
+    // 2) Termin als angefragt markieren
+    await sb(`termine?id=eq.${s.id}`, { method: 'PATCH', body: JSON.stringify({ booked: true }) });
 
-Gewünschter Termin: ${terminText}
+    btn.disabled = false; btn.textContent = 'Anfrage senden';
 
-Meine Daten:
-Name: ${name}
-Telefon: ${phone}
-E-Mail: ${email}
+    if (!r1.ok) { alert('Anfrage konnte nicht gespeichert werden: ' + await r1.text()); return; }
 
-Viele Grüße
-${name}`;
-
-    const mailto = `mailto:${KONTAKT_EMAIL}`
-      + `?subject=${encodeURIComponent(subject)}`
-      + `&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailto;
     closeModal();
+    slots = await loadSlots();
+    renderVisitor();
+
+    const banner = document.getElementById('successBanner');
+    document.getElementById('successText').textContent =
+      `Danke! Deine Anfrage für ${formatSlot(s)} ist eingegangen. Wir melden uns bei dir.`;
+    banner.classList.add('show');
+    setTimeout(() => banner.classList.remove('show'), 8000);
   }
 
-  // Modal schließen bei Klick auf Overlay
-  document.getElementById('bookingModal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
+  document.getElementById('bookingModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
 
-  // Start
   init();
 </script>
 </body>
